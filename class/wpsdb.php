@@ -187,19 +187,19 @@ class WPSDB extends WPSDB_Base {
 	function ajax_plugin_compatibility() {
 		$mu_dir = ( defined( 'WPMU_PLUGIN_DIR' ) && defined( 'WPMU_PLUGIN_URL' ) ) ? WPMU_PLUGIN_DIR : trailingslashit( WP_CONTENT_DIR ) . 'mu-plugins';
 		$source = trailingslashit( $this->plugin_dir_path ) . 'compatibility/wp-sync-db-compatibility.php';
-		$dest = trailingslashit( $mu_dir ) . 'wp-sync-db-compatibility.php';
+    $destination = trailingslashit( $mu_dir ) . 'wp-sync-db-compatibility.php';
 		if ( '1' === trim( $_POST['install'] ) ) { // install MU plugin
 			if ( !wp_mkdir_p( $mu_dir ) ) {
 				_e( sprintf( 'The following directory could not be created: %s', $mu_dir ), 'wp-sync-db' );
 				exit;
 			}
-			if ( !copy( $source, $dest ) ) {
+			if ( !copy( $source, $destination ) ) {
 				_e( sprintf( 'Could not copy the compatibility plugin from %1$s to %2$s', $source, $destination ), 'wp-sync-db' );
 				exit;
 			}
 		} else { // uninstall MU plugin
-			if ( file_exists( $dest ) && !unlink( $dest ) ) {
-				_e( sprintf( 'Could not remove the compatibility plugin from %s', $dest ), 'wp-sync-db' );
+			if ( file_exists( $destination ) && !unlink( $destination ) ) {
+				_e( sprintf( 'Could not remove the compatibility plugin from %s', $destination ), 'wp-sync-db' );
 				exit;
 			}
 		}
