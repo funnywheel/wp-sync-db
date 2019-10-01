@@ -1,0 +1,9 @@
+{
+  "name": "funnywheel/wp-sync-db",
+  "description": "Fork of popular WP Sync DB plugin",
+  "keywords": ["wordpress", "plugin", "etc", "etc"],
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "v1.0.6"
+  }
+}
